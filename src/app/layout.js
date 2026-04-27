@@ -17,7 +17,7 @@ const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ||
   (process.env.VERCEL_PROJECT_PRODUCTION_URL
     ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-    : "https://academia-zeta-five.vercel.app");
+    : "https://academia-france.vercel.app");
 const SITE_NAME = "AcademIA";
 const TITLE =
   "AcademIA · École française d'IA appliquée — juristes, marketing, secteur public";
@@ -43,6 +43,12 @@ export const metadata = {
     locale: "fr_FR",
     url: SITE_URL,
     siteName: SITE_NAME,
+    title: TITLE,
+    description:
+      "Maîtrisez l'IA appliquée en 30 jours, ou on vous rembourse. Diagnostic gratuit.",
+  },
+  twitter: {
+    card: "summary_large_image",
     title: TITLE,
     description:
       "Maîtrisez l'IA appliquée en 30 jours, ou on vous rembourse. Diagnostic gratuit.",
