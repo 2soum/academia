@@ -1,31 +1,22 @@
-import { Fraunces, Instrument_Sans, JetBrains_Mono } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
+const geist = Geist({
+  variable: "--font-geist",
   subsets: ["latin"],
   display: "swap",
-  style: ["normal", "italic"],
 });
 
-const instrument = Instrument_Sans({
-  variable: "--font-instrument",
-  subsets: ["latin"],
-  display: "swap",
-  style: ["normal", "italic"],
-});
-
-const jetbrains = JetBrains_Mono({
-  variable: "--font-jetbrains",
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
   subsets: ["latin"],
   display: "swap",
 });
 
 export const metadata = {
-  title:
-    "AcademIA — École française d'IA appliquée · Marketing & Secteur public",
+  title: "AcademIA — École française d'IA appliquée",
   description:
-    "Organisme de formation Qualiopi spécialisé en intelligence artificielle appliquée au secteur public, juridique et marketing. Programmes courts, certifiants. Exigez l'excellence.",
+    "Organisme de formation Qualiopi spécialisé en intelligence artificielle appliquée au secteur public, juridique et marketing. Programmes courts, certifiants, conçus pour praticiens exigeants.",
   keywords: [
     "formation IA",
     "Qualiopi",
@@ -37,9 +28,9 @@ export const metadata = {
   ],
   authors: [{ name: "AcademIA" }],
   openGraph: {
-    title: "AcademIA — Exigez l'excellence en intelligence artificielle.",
+    title: "AcademIA — École française d'IA appliquée",
     description:
-      "École française de formation IA. Six programmes spécialisés. Cohortes restreintes, suivi humain, certification.",
+      "Programmes Qualiopi en intelligence artificielle appliquée. Six parcours certifiants pour praticiens exigeants.",
     locale: "fr_FR",
     type: "website",
   },
@@ -49,7 +40,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="fr"
-      className={`${fraunces.variable} ${instrument.variable} ${jetbrains.variable} h-full antialiased`}
+      className={`${geist.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full">{children}</body>
     </html>

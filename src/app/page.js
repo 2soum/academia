@@ -133,7 +133,7 @@ const temoignages = [
   },
   {
     quote:
-      "Je recommande, top formation Marketing. Le passage par les agents et l'automatisation a transformé ma manière de produire et de mesurer.",
+      "Top formation Marketing. Le passage par les agents et l'automatisation a transformé ma manière de produire et de mesurer.",
     name: "L. Dubois",
     role: "Directrice de la communication",
     promo: "Promotion III",
@@ -147,96 +147,80 @@ const temoignages = [
   },
 ];
 
-const tickerItems = [
-  "Rentrée 2026 — Inscriptions ouvertes",
-  "Promotion VI · Places limitées",
-  "Certifié Qualiopi — Actions de formation",
-  "Public visé : juristes, marketeurs, agents publics",
-  "Financement CPF · OPCO · plan d'entreprise",
-  "Paris ⸱ Toulouse ⸱ Distanciel",
-];
-
 export default function Home() {
   return (
-    <main className="font-sans text-ink bg-parchment">
-      <TopTicker />
+    <main className="font-sans text-ink">
+      <StatusBar />
       <Header />
       <Hero />
-      <Manifesto />
+      <TrustStrip />
+      <Statement />
       <Stats />
       <Catalogue />
       <Methode />
       <Pourquoi />
       <Formateur />
       <Temoignages />
-      <Accreditations />
       <FinalCTA />
       <Footer />
     </main>
   );
 }
 
-/* ────────────────────────────────────────────────────────── */
+/* ───────────────────────────────────────── */
 
-function TopTicker() {
-  const items = [...tickerItems, ...tickerItems];
+function StatusBar() {
   return (
-    <div className="bg-ink text-parchment overflow-hidden border-b border-ink/40">
-      <div className="flex whitespace-nowrap py-2.5">
-        <div className="flex marquee min-w-max">
-          {items.map((t, i) => (
-            <span key={i} className="micro mx-7 inline-flex items-center gap-3">
-              <span className="text-acide">✦</span>
-              {t}
-            </span>
-          ))}
+    <div className="border-b border-ink/10 bg-paper">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-10 h-9 flex items-center justify-between micro text-ink-mute">
+        <div className="flex items-center gap-2.5">
+          <span className="inline-block w-1.5 h-1.5 rounded-full bg-acide-3" />
+          <span>Promotion VI · Inscriptions ouvertes — Rentrée 2026</span>
+        </div>
+        <div className="hidden md:flex items-center gap-6">
+          <span>Qualiopi · CPF · OPCO</span>
+          <span>FR</span>
         </div>
       </div>
     </div>
   );
 }
 
-/* ────────────────────────────────────────────────────────── */
+/* ───────────────────────────────────────── */
 
 function Header() {
   return (
-    <header className="sticky top-0 z-40 backdrop-blur-md bg-parchment/85 border-b border-ink/15">
-      <div className="max-w-[1480px] mx-auto px-6 lg:px-12 h-[72px] flex items-center justify-between gap-6">
+    <header className="sticky top-0 z-40 backdrop-blur-md bg-paper/85 border-b border-ink/10">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-10 h-16 flex items-center justify-between gap-6">
         <a
           href="#"
-          aria-label="AcademIA — accueil"
-          className="font-serif text-2xl tracking-[-0.02em] flex items-center gap-2 leading-none"
+          aria-label="AcademIA"
+          className="font-medium tracking-[-0.02em] text-[19px] leading-none"
         >
-          <span>
-            Academ<span className="italic text-bordeaux">IA</span>
-          </span>
-          <span className="text-acide text-base translate-y-[-2px]">●</span>
+          Academ<span className="font-semibold">IA</span>
         </a>
-        <nav className="hidden md:flex items-center gap-7 text-[13px] tracking-[0.01em]">
-          <a href="#catalogue" className="hover:text-bordeaux transition-colors">
+        <nav className="hidden md:flex items-center gap-7 text-[14px] text-ink-soft">
+          <a href="#catalogue" className="hover:text-ink transition-colors">
             Formations
           </a>
-          <a href="#methode" className="hover:text-bordeaux transition-colors">
+          <a href="#methode" className="hover:text-ink transition-colors">
             Méthode
           </a>
-          <a href="#formateur" className="hover:text-bordeaux transition-colors">
-            Le&nbsp;formateur
+          <a href="#formateur" className="hover:text-ink transition-colors">
+            Formateur
           </a>
-          <a
-            href="#temoignages"
-            className="hover:text-bordeaux transition-colors"
-          >
+          <a href="#temoignages" className="hover:text-ink transition-colors">
             Témoignages
           </a>
-          <a href="#contact" className="hover:text-bordeaux transition-colors">
+          <a href="#contact" className="hover:text-ink transition-colors">
             Contact
           </a>
         </nav>
         <a
           href="#contact"
-          className="lift hidden sm:inline-flex items-center gap-2 bg-ink text-parchment px-5 py-2.5 rounded-full micro hover:bg-bordeaux"
+          className="lift hidden sm:inline-flex items-center gap-2 bg-ink text-paper px-4 py-2 text-[13px] font-medium hover:bg-ink-soft"
         >
-          Demander ma formation
+          Demander un entretien
           <span aria-hidden>→</span>
         </a>
       </div>
@@ -244,115 +228,78 @@ function Header() {
   );
 }
 
-/* ────────────────────────────────────────────────────────── */
+/* ───────────────────────────────────────── */
 
 function Hero() {
   return (
-    <section className="relative pt-16 pb-28 lg:pt-24 lg:pb-44 px-6 lg:px-12 overflow-hidden">
-      {/* Decorative oversize glyph */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -right-16 top-4 hidden lg:block opacity-[0.08] select-none"
-      >
-        <span className="font-serif italic text-[460px] leading-none tracking-[-0.04em]">
-          Æ
-        </span>
-      </div>
-
-      <div className="max-w-[1480px] mx-auto relative">
-        <div className="grid grid-cols-12 gap-6 lg:gap-10">
-          {/* Left meta column */}
-          <aside className="col-span-12 lg:col-span-2 rise">
-            <div className="micro mb-6">§ Établi · MMXXIV</div>
-            <div className="text-sm leading-snug text-ink-soft max-w-[14ch]">
-              Organisme français
-              <br /> de formation
-              <br /> spécialisé en
-              <br /> intelligence
-              <br /> artificielle.
-            </div>
-            <div className="mt-10 hidden lg:block">
-              <CompassMark />
-            </div>
-          </aside>
-
-          {/* Headline */}
-          <div className="col-span-12 lg:col-span-8">
-            <div className="micro mb-8 rise">
-              <span className="text-bordeaux">●</span> Promotion VI ·
-              Inscriptions ouvertes
+    <section className="px-6 lg:px-10 pt-14 lg:pt-24 pb-20 lg:pb-28">
+      <div className="max-w-[1400px] mx-auto">
+        <div className="grid grid-cols-12 gap-6 lg:gap-12 items-end">
+          <div className="col-span-12 lg:col-span-8 rise">
+            <div className="micro text-ink-mute mb-8 flex items-center gap-2.5">
+              <span className="inline-block w-1.5 h-1.5 rounded-full bg-acide-3" />
+              Organisme de formation IA · Qualiopi
             </div>
             <h1
-              className="font-serif tracking-[-0.025em] leading-[0.9] balance"
-              style={{ fontSize: "clamp(56px, 13vw, 224px)" }}
+              className="font-medium tracking-[-0.035em] leading-[0.98] balance"
+              style={{ fontSize: "clamp(44px, 7.4vw, 122px)" }}
             >
-              <span className="block rise">Exigez</span>
-              <span className="block italic rise-2">l'excellence</span>
-              <span className="block rise-3">en intelligence</span>
-              <span className="block italic text-bordeaux rise-4">
-                artificielle.
-              </span>
+              Une école d'
+              <span className="font-light italic">intelligence artificielle</span>
+              <span className="text-ink-mute">.</span> Pour les{" "}
+              <span className="border-b-[3px] border-acide-2 pb-1">
+                praticiens
+              </span>{" "}
+              exigeants.
             </h1>
-
-            <div className="mt-12 lg:mt-16 grid grid-cols-12 gap-6 items-end">
-              <p className="col-span-12 md:col-span-7 text-lg lg:text-xl leading-relaxed pretty rise-3 max-w-xl">
-                AcademIA est l'organisme français de formation à l'IA appliquée
-                au secteur public, juridique et marketing. Programmes courts,
-                cadrés, certifiants — pour praticiens exigeants.
-              </p>
-              <div className="col-span-12 md:col-span-5 flex flex-col sm:flex-row gap-3 rise-4">
-                <a
-                  href="#contact"
-                  className="lift inline-flex items-center justify-center gap-2 bg-ink text-parchment px-6 py-4 rounded-full micro hover:bg-bordeaux"
-                >
-                  Demander ma formation
-                  <span aria-hidden>→</span>
-                </a>
-                <a
-                  href="#catalogue"
-                  className="lift inline-flex items-center justify-center gap-2 px-6 py-4 border border-ink/30 rounded-full micro hover:bg-ink hover:text-parchment"
-                >
-                  Voir le catalogue
-                </a>
-              </div>
+            <p className="mt-10 max-w-2xl text-[17px] lg:text-[19px] text-ink-soft leading-[1.55] pretty rise-1">
+              Programmes courts, certifiants Qualiopi, conçus pour le secteur
+              public, juridique et marketing. Cohortes restreintes, suivi
+              humain, livrables vérifiables.
+            </p>
+            <div className="mt-10 flex flex-col sm:flex-row gap-3 rise-2">
+              <a
+                href="#contact"
+                className="lift inline-flex items-center justify-center gap-2 bg-ink text-paper px-6 py-3.5 text-[14px] font-medium hover:bg-ink-soft"
+              >
+                Demander ma formation
+                <span aria-hidden>→</span>
+              </a>
+              <a
+                href="#catalogue"
+                className="lift inline-flex items-center justify-center gap-2 px-6 py-3.5 border border-ink/20 text-[14px] hover:bg-ink hover:text-paper hover:border-ink"
+              >
+                Voir les programmes
+              </a>
             </div>
           </div>
 
-          {/* Right meta */}
-          <aside className="col-span-12 lg:col-span-2 lg:text-right">
-            <div className="micro mb-6">№ MMXXVI · École · IA</div>
-            <div className="lg:flex lg:justify-end">
-              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-acide text-ink tag glow-pulse">
-                ● Qualiopi
-              </span>
+          {/* Cohort info card */}
+          <div className="col-span-12 lg:col-span-4 rise-3">
+            <div className="border border-ink/15 bg-paper">
+              <div className="flex items-center justify-between border-b border-ink/15 px-5 py-3">
+                <span className="micro">Promotion VI</span>
+                <span className="micro tab text-ink-mute">MMXXVI</span>
+              </div>
+              <dl className="px-5 py-1 divide-y divide-ink/10">
+                <Row k="Début" v="Mars 2026" />
+                <Row k="Places" v="14 / 21" />
+                <Row k="Format" v="100 % en ligne" />
+                <Row k="Durée" v="14 – 28 h" />
+                <Row k="Suivi" v="Personnalisé" />
+                <Row k="Note" v="5,0 / 5" />
+              </dl>
+              <div className="border-t border-ink/15 px-5 py-3 flex items-center justify-between">
+                <span className="micro text-ink-mute">Statut</span>
+                <span className="micro flex items-center gap-2">
+                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-acide-3" />
+                  Inscriptions ouvertes
+                </span>
+              </div>
             </div>
-            <div className="mt-8 text-sm text-ink-soft max-w-[16ch] lg:ml-auto">
-              <div className="flex justify-between border-t border-ink/20 pt-2 mt-2">
-                <span className="micro">Cohorte</span>
-                <span>VI</span>
-              </div>
-              <div className="flex justify-between border-t border-ink/20 pt-2 mt-2">
-                <span className="micro">Places</span>
-                <span>14</span>
-              </div>
-              <div className="flex justify-between border-t border-ink/20 pt-2 mt-2">
-                <span className="micro">Note</span>
-                <span>5/5</span>
-              </div>
-            </div>
-          </aside>
-        </div>
-
-        {/* Editorial fold rule + epigraph */}
-        <div className="mt-16 lg:mt-24 grid grid-cols-12 gap-6 items-center text-sm">
-          <div className="col-span-2 lg:col-span-3">
-            <span className="ink-rule" />
-          </div>
-          <div className="col-span-8 lg:col-span-6 text-center font-serif italic text-base lg:text-lg text-ink-soft">
-            «&nbsp;Une école pour praticiens — pas pour curieux.&nbsp;»
-          </div>
-          <div className="col-span-2 lg:col-span-3">
-            <span className="ink-rule" />
+            <p className="mt-3 micro text-ink-mute leading-relaxed">
+              ↳ Cohorte limitée à 21 places · Sélection sur entretien
+            </p>
           </div>
         </div>
       </div>
@@ -360,134 +307,114 @@ function Hero() {
   );
 }
 
-function CompassMark() {
+function Row({ k, v }) {
   return (
-    <svg
-      viewBox="0 0 100 100"
-      aria-hidden
-      className="w-20 h-20 text-bordeaux spin-slow"
-    >
-      <g fill="currentColor">
-        <path d="M50 4 L54 46 L96 50 L54 54 L50 96 L46 54 L4 50 L46 46 Z" />
-      </g>
-      <circle
-        cx="50"
-        cy="50"
-        r="30"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="0.8"
-        opacity="0.4"
-      />
-      <text
-        x="50"
-        y="53"
-        textAnchor="middle"
-        fontSize="9"
-        fill="currentColor"
-        fontFamily="var(--font-mono)"
-        letterSpacing="0.4"
-      >
-        AE
-      </text>
-    </svg>
+    <div className="flex items-baseline justify-between py-2.5">
+      <dt className="micro text-ink-mute">{k}</dt>
+      <dd className="text-[14px] tab">{v}</dd>
+    </div>
   );
 }
 
-/* ────────────────────────────────────────────────────────── */
+/* ───────────────────────────────────────── */
 
-function Manifesto() {
+function TrustStrip() {
+  const items = ["Qualiopi", "CPF", "OPCO", "Datadock", "France Compétences"];
   return (
-    <section className="relative bg-ink text-parchment py-28 lg:py-44 px-6 lg:px-12 overflow-hidden">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -left-10 -bottom-32 opacity-[0.06] select-none"
-      >
-        <span className="font-serif italic text-[520px] leading-none text-acide">
-          ¶
-        </span>
-      </div>
-      <div className="max-w-[1480px] mx-auto relative">
-        <div className="grid grid-cols-12 gap-6 lg:gap-10">
-          <div className="col-span-12 lg:col-span-3 micro text-acide">
-            § 01 — Manifeste
-          </div>
-          <div className="col-span-12 lg:col-span-9">
-            <h2
-              className="font-serif leading-[1.02] tracking-[-0.018em] balance scroll-rise"
-              style={{ fontSize: "clamp(36px, 5.6vw, 88px)" }}
+    <section className="border-y border-ink/10 bg-paper">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-10 py-7 flex flex-wrap items-center gap-x-8 gap-y-3">
+        <span className="micro text-ink-mute">Reconnaissances</span>
+        <span className="hidden md:block flex-1 h-px bg-ink/10" />
+        <div className="flex flex-wrap items-center gap-x-8 gap-y-2">
+          {items.map((l) => (
+            <span
+              key={l}
+              className="font-medium text-[15px] tracking-[-0.01em] text-ink-soft"
             >
-              Nous formons des professionnels qui doivent{" "}
-              <em className="text-acide">livrer</em> — pas des amateurs qui
-              veulent <em className="text-acide">comprendre</em>.
-            </h2>
-            <div className="mt-14 lg:mt-20 grid grid-cols-12 gap-6 lg:gap-12 text-base lg:text-[17px] leading-relaxed text-parchment/85">
-              <p className="col-span-12 md:col-span-4 scroll-rise">
-                <span className="micro text-acide block mb-3">i</span>
-                AcademIA refuse les buffets de modules. Chaque parcours
-                s'engage sur un livrable, un cas réel, une mesure de progrès —
-                et un formateur joignable.
-              </p>
-              <p className="col-span-12 md:col-span-4 scroll-rise">
-                <span className="micro text-acide block mb-3">ii</span>
-                Le contenu est rigoureux parce qu'il est utile. Nos cohortes
-                restreintes garantissent un suivi sérieux et une exigence
-                partagée — pas un MOOC anonyme.
-              </p>
-              <p className="col-span-12 md:col-span-4 scroll-rise">
-                <span className="micro text-acide block mb-3">iii</span>
-                Nous vous remettons une boîte à outils que vos équipes
-                activent dès le lundi — pas une promesse marketing à
-                archiver.
-              </p>
-            </div>
-          </div>
+              {l}
+            </span>
+          ))}
         </div>
       </div>
     </section>
   );
 }
 
-/* ────────────────────────────────────────────────────────── */
+/* ───────────────────────────────────────── */
+
+function Statement() {
+  return (
+    <section className="px-6 lg:px-10 py-20 lg:py-28">
+      <div className="max-w-[1100px] mx-auto text-center scroll-rise">
+        <div className="micro text-ink-mute mb-8">Promesse</div>
+        <p
+          className="font-light tracking-[-0.025em] leading-[1.15] balance"
+          style={{ fontSize: "clamp(28px, 4.2vw, 60px)" }}
+        >
+          Nous formons des professionnels qui doivent{" "}
+          <span className="font-semibold">livrer</span> — pas des amateurs qui
+          veulent <span className="font-semibold">comprendre</span>.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+/* ───────────────────────────────────────── */
 
 function Stats() {
   const stats = [
-    { num: "VI", suffix: null, label: "programmes spécialisés", caption: "Catalogue 2026" },
-    { num: "120", suffix: "+", label: "apprenants formés", caption: "Promotions I à V" },
-    { num: "5", suffix: "/5", label: "note de satisfaction", caption: "Avis vérifiés" },
-    { num: "Q", suffix: null, label: "Qualiopi · actions de formation", caption: "Cert. n° MMXXIV-128" },
+    {
+      num: "06",
+      suffix: null,
+      label: "Programmes spécialisés",
+      caption: "Catalogue 2026",
+    },
+    {
+      num: "120",
+      suffix: "+",
+      label: "Apprenants formés",
+      caption: "Promotions I → V",
+    },
+    {
+      num: "5,0",
+      suffix: "/5",
+      label: "Note de satisfaction",
+      caption: "Avis vérifiés",
+    },
+    {
+      num: "100",
+      suffix: " %",
+      label: "Recommandent AcademIA",
+      caption: "Enquête mars 2026",
+    },
   ];
   return (
-    <section className="py-20 lg:py-32 px-6 lg:px-12">
-      <div className="max-w-[1480px] mx-auto">
-        <div className="flex items-baseline justify-between mb-10 lg:mb-14">
-          <div className="micro">Chiffres clefs · MMXXVI</div>
-          <div className="micro hidden md:block text-ink-mute">
-            audit interne · janvier 2026
-          </div>
+    <section className="px-6 lg:px-10 py-16 lg:py-24 border-t border-ink/15">
+      <div className="max-w-[1400px] mx-auto">
+        <div className="flex items-baseline justify-between mb-10">
+          <span className="micro text-ink-mute">Chiffres clefs · MMXXVI</span>
+          <span className="micro text-ink-mute hidden md:inline">
+            Audit interne · janvier 2026
+          </span>
         </div>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-ink/15 border border-ink/15">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
           {stats.map((s, i) => (
-            <div
-              key={i}
-              className="bg-parchment p-7 lg:p-10 relative scroll-rise"
-            >
-              <div className="micro text-bordeaux mb-3">
+            <div key={i} className="scroll-rise">
+              <div className="micro text-ink-mute mb-4 tab">
                 {String(i + 1).padStart(2, "0")}
               </div>
               <div
-                className="font-serif leading-[0.85] tracking-[-0.045em]"
-                style={{ fontSize: "clamp(64px, 10vw, 156px)" }}
+                className="font-medium leading-[0.95] tracking-[-0.045em] tab"
+                style={{ fontSize: "clamp(48px, 6.4vw, 92px)" }}
               >
-                <span className="italic">{s.num}</span>
+                {s.num}
                 {s.suffix && (
-                  <span className="text-bordeaux">{s.suffix}</span>
+                  <span className="text-ink-mute font-light">{s.suffix}</span>
                 )}
               </div>
-              <div className="mt-6 lg:mt-8 text-sm leading-snug max-w-[18ch]">
-                {s.label}
-              </div>
-              <div className="mt-2 micro text-ink-mute">{s.caption}</div>
+              <div className="mt-5 text-[15px] max-w-[22ch]">{s.label}</div>
+              <div className="mt-1 micro text-ink-mute">{s.caption}</div>
             </div>
           ))}
         </div>
@@ -496,138 +423,128 @@ function Stats() {
   );
 }
 
-/* ────────────────────────────────────────────────────────── */
+/* ───────────────────────────────────────── */
+
+function SectionHeader({ eyebrow, title, subline }) {
+  return (
+    <div className="grid grid-cols-12 gap-6 lg:gap-10 mb-12 lg:mb-16 scroll-rise">
+      <div className="col-span-12 lg:col-span-3">
+        <div className="micro text-ink-mute">{eyebrow}</div>
+      </div>
+      <div className="col-span-12 lg:col-span-9">
+        <h2
+          className="font-medium tracking-[-0.03em] leading-[1.0] balance"
+          style={{ fontSize: "clamp(34px, 5.5vw, 80px)" }}
+        >
+          {title}
+        </h2>
+        {subline && (
+          <p className="mt-6 max-w-2xl text-[16px] lg:text-[18px] text-ink-soft leading-[1.6] pretty">
+            {subline}
+          </p>
+        )}
+      </div>
+    </div>
+  );
+}
+
+/* ───────────────────────────────────────── */
 
 function Catalogue() {
   return (
     <section
       id="catalogue"
-      className="py-28 lg:py-44 px-6 lg:px-12 bg-parchment-2 border-y border-ink/15"
+      className="px-6 lg:px-10 py-20 lg:py-28 border-t border-ink/15"
     >
-      <div className="max-w-[1480px] mx-auto">
-        <div className="grid grid-cols-12 gap-6 lg:gap-10 mb-14 lg:mb-20">
-          <div className="col-span-12 lg:col-span-3 micro">
-            § 02 — Catalogue
-          </div>
-          <div className="col-span-12 lg:col-span-9">
-            <h2
-              className="font-serif leading-[0.95] tracking-[-0.022em] balance scroll-rise"
-              style={{ fontSize: "clamp(40px, 7.5vw, 116px)" }}
-            >
-              Six programmes. <em>Aucun</em> superflu.
-            </h2>
-            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-ink-soft scroll-rise">
-              Chaque programme est calé sur un usage métier précis — depuis la
-              maîtrise du prompt jusqu'à l'orchestration d'agents, avec un
-              volet conformité indissociable.
-            </p>
-          </div>
-        </div>
-
+      <div className="max-w-[1400px] mx-auto">
+        <SectionHeader
+          eyebrow="01 / Catalogue"
+          title="Six programmes spécialisés."
+          subline="Calé sur des usages métier précis — du prompting aux agents, avec un volet conformité indissociable."
+        />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-ink/15 border border-ink/15">
           {programmes.map((p) => (
             <article
               key={p.code}
-              className="bg-parchment p-7 lg:p-10 group relative lift hover:bg-parchment-2"
+              className="bg-paper p-7 lg:p-8 group lift hover:bg-paper-2/40"
             >
-              <div className="flex items-baseline justify-between mb-7">
-                <span className="font-serif italic text-3xl text-bordeaux">
-                  {p.no}
+              <div className="flex items-center justify-between mb-7">
+                <span className="micro text-ink-mute tab">
+                  {p.no} · {p.code}
                 </span>
-                <div className="flex items-center gap-2">
-                  {p.badge && (
-                    <span className="tag bg-acide text-ink px-2 py-1 rounded-full">
-                      {p.badge}
-                    </span>
-                  )}
-                  <span className="micro text-ink-mute">{p.code}</span>
-                </div>
+                {p.badge && (
+                  <span className="micro bg-acide text-ink px-2 py-0.5">
+                    {p.badge}
+                  </span>
+                )}
               </div>
-              <h3 className="font-serif text-2xl lg:text-[28px] leading-[1.1] tracking-[-0.012em] pretty">
+              <h3 className="font-medium text-[22px] lg:text-[24px] leading-[1.15] tracking-[-0.015em] pretty">
                 {p.title}
               </h3>
-              <p className="mt-4 leading-relaxed text-ink-soft text-[15px]">
+              <p className="mt-3 text-[15px] leading-[1.55] text-ink-soft">
                 {p.summary}
               </p>
-              <div className="mt-8 flex items-center gap-4 text-sm">
-                <span className="micro">{p.duration}</span>
-                <span className="ink-rule flex-1" />
-                <span className="micro">{p.format}</span>
+              <div className="mt-7 pt-5 border-t border-ink/10 flex items-center gap-4 micro text-ink-mute">
+                <span>{p.duration}</span>
+                <span className="w-px h-3 bg-ink/20" />
+                <span>{p.format}</span>
+                <span className="ml-auto group-hover:text-ink transition-colors">
+                  →
+                </span>
               </div>
-              <a
-                href="#contact"
-                className="mt-7 inline-flex items-center gap-2 text-sm border-b border-ink/30 pb-1 hover:border-bordeaux hover:text-bordeaux transition-colors"
-              >
-                Demander ce parcours
-                <span aria-hidden>→</span>
-              </a>
             </article>
           ))}
         </div>
-
-        <div className="mt-12 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
+        <div className="mt-10 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
           <a
             href="#contact"
-            className="micro inline-flex items-center gap-2 hover:text-bordeaux"
+            className="micro text-ink-mute hover:text-ink inline-flex items-center gap-2"
           >
-            ↓ Catalogue complet (PDF — 2,4 Mo)
+            ↓ Catalogue PDF — 2,4 Mo
           </a>
-          <div className="micro text-ink-mute">
-            Programmes individuels · sur-mesure entreprise · sur demande
-          </div>
+          <span className="micro text-ink-mute">
+            Sur-mesure entreprise · sur demande
+          </span>
         </div>
       </div>
     </section>
   );
 }
 
-/* ────────────────────────────────────────────────────────── */
+/* ───────────────────────────────────────── */
 
 function Methode() {
   return (
-    <section id="methode" className="py-28 lg:py-44 px-6 lg:px-12">
-      <div className="max-w-[1480px] mx-auto">
-        <div className="grid grid-cols-12 gap-6 lg:gap-10 mb-14 lg:mb-20">
-          <div className="col-span-12 lg:col-span-3 micro">§ 03 — Méthode</div>
-          <div className="col-span-12 lg:col-span-9">
-            <h2
-              className="font-serif leading-[0.95] tracking-[-0.022em] balance scroll-rise"
-              style={{ fontSize: "clamp(40px, 7.5vw, 116px)" }}
-            >
-              Le parcours, en <em>six chapitres</em>.
-            </h2>
-            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-ink-soft scroll-rise">
-              Du diagnostic à la certification, chaque jalon est tenu — sans
-              latence administrative, sans dilution pédagogique.
-            </p>
-          </div>
-        </div>
-
-        <ol className="border-t border-ink/20">
+    <section
+      id="methode"
+      className="px-6 lg:px-10 py-20 lg:py-28 border-t border-ink/15"
+    >
+      <div className="max-w-[1400px] mx-auto">
+        <SectionHeader
+          eyebrow="02 / Méthode"
+          title="Le parcours, en six étapes."
+          subline="Du diagnostic à la certification, chaque jalon est tenu — sans latence administrative, sans dilution pédagogique."
+        />
+        <ol className="border-t border-ink/15">
           {methode.map((step) => (
             <li
               key={step.no}
-              className="grid grid-cols-12 gap-4 lg:gap-10 py-8 lg:py-12 border-b border-ink/20 group transition-colors hover:bg-parchment-2"
+              className="grid grid-cols-12 gap-4 lg:gap-10 py-7 lg:py-9 border-b border-ink/15 group transition-colors hover:bg-paper-2/40 -mx-3 px-3"
             >
-              <div className="col-span-3 lg:col-span-2">
-                <div
-                  className="font-serif leading-none tracking-[-0.04em] text-ink/30 group-hover:text-bordeaux transition-colors duration-700"
-                  style={{ fontSize: "clamp(56px, 8.5vw, 132px)" }}
-                >
-                  {step.no}
-                </div>
+              <div className="col-span-2 lg:col-span-1 micro text-ink-mute tab pt-1">
+                {step.no}
               </div>
-              <div className="col-span-9 lg:col-span-6">
-                <h3 className="font-serif text-2xl lg:text-[34px] leading-[1.1] tracking-[-0.01em] pretty">
+              <div className="col-span-10 lg:col-span-7">
+                <h3 className="font-medium text-[22px] lg:text-[26px] leading-[1.2] tracking-[-0.015em] pretty">
                   {step.title}
                 </h3>
-                <p className="mt-4 text-base lg:text-lg leading-relaxed text-ink-soft max-w-2xl">
+                <p className="mt-3 text-[15px] lg:text-[16px] leading-[1.6] text-ink-soft max-w-2xl">
                   {step.body}
                 </p>
               </div>
-              <div className="col-span-12 lg:col-span-4 flex items-start lg:justify-end">
-                <span className="micro inline-flex items-center gap-2 self-start px-3.5 py-1.5 border border-ink/25 rounded-full">
-                  <span className="text-bordeaux">↳</span>
+              <div className="col-span-12 lg:col-span-4 lg:flex lg:items-start lg:justify-end">
+                <span className="inline-flex items-center gap-2 micro text-ink-mute border border-ink/15 px-3 py-1.5">
+                  <span aria-hidden>↳</span>
                   {step.detail}
                 </span>
               </div>
@@ -639,50 +556,29 @@ function Methode() {
   );
 }
 
-/* ────────────────────────────────────────────────────────── */
+/* ───────────────────────────────────────── */
 
 function Pourquoi() {
   return (
-    <section className="relative py-28 lg:py-44 px-6 lg:px-12 bg-ink text-parchment overflow-hidden">
-      <div
-        aria-hidden
-        className="absolute right-8 top-12 hidden lg:block opacity-70"
-      >
-        <CompassMarkAcid />
-      </div>
-      <div className="max-w-[1480px] mx-auto relative">
-        <div className="grid grid-cols-12 gap-6 lg:gap-10 mb-14 lg:mb-20">
-          <div className="col-span-12 lg:col-span-3 micro text-acide">
-            § 04 — Pourquoi nous
-          </div>
-          <div className="col-span-12 lg:col-span-9">
-            <h2
-              className="font-serif leading-[0.95] tracking-[-0.022em] balance scroll-rise"
-              style={{ fontSize: "clamp(40px, 7.5vw, 116px)" }}
-            >
-              Quatre raisons. <em className="text-acide">Toutes vérifiables.</em>
-            </h2>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-parchment/20 border border-parchment/20">
+    <section className="px-6 lg:px-10 py-20 lg:py-28 border-t border-ink/15 bg-paper-2/40">
+      <div className="max-w-[1400px] mx-auto">
+        <SectionHeader
+          eyebrow="03 / Pourquoi nous"
+          title="Quatre raisons. Toutes vérifiables."
+        />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-ink/15 border border-ink/15">
           {pourquoi.map((p, i) => (
-            <article
-              key={i}
-              className="bg-ink p-8 lg:p-12 relative scroll-rise"
-            >
+            <article key={i} className="bg-paper p-8 lg:p-10 scroll-rise">
               <div className="flex items-baseline justify-between mb-6">
-                <div className="micro text-acide">
-                  {String(i + 1).padStart(2, "0")} · {p.eyebrow}
-                </div>
-                <span className="font-serif italic text-acide text-3xl leading-none">
-                  *
+                <span className="micro tab">
+                  {String(i + 1).padStart(2, "0")}
                 </span>
+                <span className="micro text-ink-mute">{p.eyebrow}</span>
               </div>
-              <h3 className="font-serif text-2xl lg:text-[36px] leading-[1.08] tracking-[-0.012em] pretty">
+              <h3 className="font-medium text-[22px] lg:text-[28px] leading-[1.15] tracking-[-0.015em] pretty">
                 {p.title}
               </h3>
-              <p className="mt-6 leading-relaxed text-parchment/75 max-w-xl">
+              <p className="mt-5 text-[15px] lg:text-[16px] text-ink-soft leading-[1.6] max-w-xl">
                 {p.body}
               </p>
             </article>
@@ -693,48 +589,51 @@ function Pourquoi() {
   );
 }
 
-function CompassMarkAcid() {
-  return (
-    <svg viewBox="0 0 100 100" aria-hidden className="w-36 h-36 spin-slow">
-      <g fill="#cee04a">
-        <path d="M50 4 L54 46 L96 50 L54 54 L50 96 L46 54 L4 50 L46 46 Z" />
-      </g>
-      <circle
-        cx="50"
-        cy="50"
-        r="36"
-        fill="none"
-        stroke="#cee04a"
-        strokeWidth="0.6"
-        opacity="0.5"
-      />
-    </svg>
-  );
-}
-
-/* ────────────────────────────────────────────────────────── */
+/* ───────────────────────────────────────── */
 
 function Formateur() {
   return (
     <section
       id="formateur"
-      className="py-28 lg:py-44 px-6 lg:px-12 bg-parchment-2 border-y border-ink/15"
+      className="px-6 lg:px-10 py-20 lg:py-28 border-t border-ink/15"
     >
-      <div className="max-w-[1480px] mx-auto">
-        <div className="grid grid-cols-12 gap-6 lg:gap-12">
-          <div className="col-span-12 lg:col-span-7 lg:col-start-2 order-2 lg:order-1">
-            <div className="micro mb-8">§ 05 — Le formateur</div>
+      <div className="max-w-[1400px] mx-auto">
+        <div className="grid grid-cols-12 gap-6 lg:gap-12 items-start">
+          <div className="col-span-12 lg:col-span-3 order-2 lg:order-1">
+            <figure className="aspect-[3/4] bg-ink relative overflow-hidden border border-ink/20">
+              <div className="absolute inset-0 grid place-items-center text-paper">
+                <span
+                  className="font-medium tracking-[-0.04em] leading-none"
+                  style={{ fontSize: "clamp(80px, 12vw, 156px)" }}
+                >
+                  DT
+                </span>
+              </div>
+              <div className="absolute top-3 left-3 right-3 flex justify-between micro text-paper/60">
+                <span>Portrait</span>
+                <span>I / I</span>
+              </div>
+              <div className="absolute bottom-3 left-3 right-3 flex justify-between micro text-paper/60">
+                <span>D. Thiam</span>
+                <span>Lead trainer</span>
+              </div>
+            </figure>
+            <p className="mt-3 micro text-ink-mute">
+              ↳ Photographie · Studio Paris XV
+            </p>
+          </div>
+          <div className="col-span-12 lg:col-span-8 lg:col-start-5 order-1 lg:order-2">
+            <div className="micro text-ink-mute mb-6">04 / Le formateur</div>
             <h2
-              className="font-serif leading-[0.92] tracking-[-0.025em] mb-12 balance scroll-rise"
-              style={{ fontSize: "clamp(48px, 8.5vw, 132px)" }}
+              className="font-medium tracking-[-0.03em] leading-[1.0] balance"
+              style={{ fontSize: "clamp(36px, 5.5vw, 84px)" }}
             >
-              Diakaryou <span className="italic">Thiam</span>.
+              Diakaryou Thiam.
             </h2>
-            <div className="space-y-6 text-lg leading-relaxed max-w-2xl scroll-rise">
+            <div className="mt-8 space-y-5 text-[16px] lg:text-[17px] leading-[1.65] max-w-2xl">
               <p>
                 Juriste public de formation — Master 2 Droit public de
-                l'économie — avec une expérience approfondie en marchés
-                publics et une pratique opérationnelle de l'IA générative
+                l'économie — et praticien opérationnel de l'IA générative
                 depuis quatre ans.
               </p>
               <p className="text-ink-soft">
@@ -744,52 +643,12 @@ function Formateur() {
                 méthodologique au sensationnel.
               </p>
             </div>
-            <div className="mt-14 grid grid-cols-2 lg:grid-cols-4 gap-6 text-sm">
-              <CredItem k="Expérience" v="04 ans · IA & Droit" />
-              <CredItem k="Diplôme" v="Master 2 D. public" />
-              <CredItem
-                k="Spécialités"
-                v="Marchés publics, RGPD, prompting"
-              />
-              <CredItem k="Cohortes formées" v="120+ apprenants" />
-            </div>
-          </div>
-
-          {/* Stylized portrait card */}
-          <div className="col-span-12 lg:col-span-3 lg:col-start-9 order-1 lg:order-2">
-            <figure className="aspect-[3/4] bg-ink relative overflow-hidden border border-ink/30 lift">
-              <div className="absolute inset-0 grid place-items-center text-parchment">
-                <div className="text-center px-6">
-                  <div
-                    className="font-serif italic leading-none tracking-[-0.04em]"
-                    style={{ fontSize: "clamp(80px, 14vw, 180px)" }}
-                  >
-                    DT
-                  </div>
-                  <div className="micro text-acide mt-6">
-                    Lead trainer · Founder
-                  </div>
-                </div>
-              </div>
-              {/* Frame ornaments */}
-              <div className="absolute top-3 left-3 right-3 flex justify-between micro text-parchment/70">
-                <span>PORTRAIT N° I</span>
-                <span>MMXXVI</span>
-              </div>
-              <div className="absolute bottom-3 left-3 right-3 flex justify-between micro text-parchment/70">
-                <span>D. THIAM</span>
-                <span>FONDATEUR</span>
-              </div>
-              {/* Corners */}
-              <span className="absolute top-2 left-2 w-3 h-3 border-t border-l border-parchment/40" />
-              <span className="absolute top-2 right-2 w-3 h-3 border-t border-r border-parchment/40" />
-              <span className="absolute bottom-2 left-2 w-3 h-3 border-b border-l border-parchment/40" />
-              <span className="absolute bottom-2 right-2 w-3 h-3 border-b border-r border-parchment/40" />
-            </figure>
-            <p className="mt-5 text-xs text-ink-soft italic max-w-xs leading-relaxed">
-              «&nbsp;La technique sans rigueur juridique produit du
-              risque. Nous enseignons les deux ensemble.&nbsp;»
-            </p>
+            <dl className="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-6 border-t border-ink/15 pt-8 max-w-3xl">
+              <Cred k="Expérience" v="04 ans · IA & Droit" />
+              <Cred k="Diplôme" v="Master 2 D. public" />
+              <Cred k="Spécialités" v="RGPD · prompting · marchés publics" />
+              <Cred k="Cohortes formées" v="120+" />
+            </dl>
           </div>
         </div>
       </div>
@@ -797,63 +656,42 @@ function Formateur() {
   );
 }
 
-function CredItem({ k, v }) {
+function Cred({ k, v }) {
   return (
-    <div className="border-t border-ink/30 pt-3">
-      <div className="micro mb-1">{k}</div>
-      <div className="text-base leading-tight">{v}</div>
+    <div>
+      <dt className="micro text-ink-mute mb-1.5">{k}</dt>
+      <dd className="text-[15px] leading-tight">{v}</dd>
     </div>
   );
 }
 
-/* ────────────────────────────────────────────────────────── */
+/* ───────────────────────────────────────── */
 
 function Temoignages() {
   return (
-    <section id="temoignages" className="py-28 lg:py-44 px-6 lg:px-12">
-      <div className="max-w-[1480px] mx-auto">
-        <div className="grid grid-cols-12 gap-6 lg:gap-10 mb-14 lg:mb-20">
-          <div className="col-span-12 lg:col-span-3 micro">
-            § 06 — Témoignages
-          </div>
-          <div className="col-span-12 lg:col-span-9">
-            <h2
-              className="font-serif leading-[0.95] tracking-[-0.022em] balance scroll-rise"
-              style={{ fontSize: "clamp(40px, 7.5vw, 116px)" }}
-            >
-              Ce qu'<em>elles et eux</em> en disent.
-            </h2>
-            <p className="mt-8 max-w-xl text-lg leading-relaxed text-ink-soft scroll-rise">
-              Avis vérifiés des promotions I à V. Note moyenne : 5/5.
-            </p>
-          </div>
-        </div>
-
+    <section
+      id="temoignages"
+      className="px-6 lg:px-10 py-20 lg:py-28 border-t border-ink/15 bg-paper-2/40"
+    >
+      <div className="max-w-[1400px] mx-auto">
+        <SectionHeader
+          eyebrow="05 / Témoignages"
+          title="Ce qu'ils en disent."
+          subline="Avis vérifiés des promotions I à V — note moyenne 5,0 / 5."
+        />
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-px bg-ink/15 border border-ink/15">
           {temoignages.map((t, i) => (
-            <figure
-              key={i}
-              className="bg-parchment-2 p-8 lg:p-10 relative scroll-rise"
-            >
-              <div
-                aria-hidden
-                className="font-serif leading-none italic text-bordeaux mb-4"
-                style={{ fontSize: "clamp(60px, 9vw, 120px)" }}
-              >
-                "
-              </div>
-              <blockquote className="font-serif text-xl lg:text-[26px] leading-[1.18] tracking-[-0.01em] pretty -mt-2">
-                {t.quote}
+            <figure key={i} className="bg-paper p-8 lg:p-10 scroll-rise">
+              <div className="micro text-acide-3 mb-6 tab">★★★★★ · 5,0</div>
+              <blockquote className="text-[18px] lg:text-[20px] leading-[1.4] tracking-[-0.005em] font-medium pretty">
+                « {t.quote} »
               </blockquote>
-              <figcaption className="mt-10 pt-6 border-t border-ink/20 flex items-end justify-between gap-4">
+              <figcaption className="mt-8 pt-6 border-t border-ink/15 flex items-end justify-between gap-4">
                 <div>
-                  <div className="text-base font-medium">{t.name}</div>
+                  <div className="text-[15px] font-medium">{t.name}</div>
                   <div className="micro text-ink-mute mt-1">{t.role}</div>
                 </div>
-                <div className="text-right">
-                  <div className="micro text-bordeaux mb-1">★★★★★</div>
-                  <div className="micro text-ink-mute">{t.promo}</div>
-                </div>
+                <div className="micro text-ink-mute">{t.promo}</div>
               </figcaption>
             </figure>
           ))}
@@ -863,101 +701,53 @@ function Temoignages() {
   );
 }
 
-/* ────────────────────────────────────────────────────────── */
-
-function Accreditations() {
-  const items = [
-    { label: "Qualiopi", italic: false, sub: "Actions de formation · Cert. MMXXIV-128" },
-    { label: "CPF", italic: true, sub: "Compte personnel de formation" },
-    { label: "OPCO", italic: false, sub: "Financement opérateurs de compétences" },
-    { label: "Datadock", italic: true, sub: "Référencé · 21 indicateurs" },
-  ];
-  return (
-    <section className="py-16 lg:py-24 px-6 lg:px-12 bg-parchment-3 border-y border-ink/15 relative overflow-hidden">
-      <div className="max-w-[1480px] mx-auto relative">
-        <div className="micro mb-10 text-center">
-          Labels &amp; accréditations · Reconnaissance officielle
-        </div>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-10 lg:gap-y-0 items-center justify-items-center">
-          {items.map((it, i) => (
-            <div key={i} className="text-center px-4">
-              <div
-                className={`font-serif leading-none mb-3 tracking-[-0.02em] ${it.italic ? "italic" : ""}`}
-                style={{ fontSize: "clamp(40px, 5vw, 76px)" }}
-              >
-                {it.label}
-              </div>
-              <div className="micro text-ink-soft">{it.sub}</div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ────────────────────────────────────────────────────────── */
+/* ───────────────────────────────────────── */
 
 function FinalCTA() {
   return (
     <section
       id="contact"
-      className="relative py-28 lg:py-44 px-6 lg:px-12 bg-ink text-parchment overflow-hidden"
+      className="px-6 lg:px-10 py-20 lg:py-32 bg-ink text-paper border-t border-ink/15 relative overflow-hidden"
     >
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -bottom-32 -left-12 select-none"
-      >
-        <span
-          className="font-serif italic text-acide opacity-[0.07] leading-none"
-          style={{ fontSize: "clamp(280px, 50vw, 720px)" }}
-        >
-          &amp;
-        </span>
-      </div>
-
-      <div className="max-w-[1480px] mx-auto relative">
+      <div className="max-w-[1400px] mx-auto relative">
         <div className="grid grid-cols-12 gap-6 lg:gap-10">
-          <div className="col-span-12 lg:col-span-3 micro text-acide">
-            § 07 — Démarrer
+          <div className="col-span-12 lg:col-span-3 micro text-paper/55">
+            06 / Démarrer
           </div>
           <div className="col-span-12 lg:col-span-9">
             <h2
-              className="font-serif leading-[0.9] tracking-[-0.025em] balance scroll-rise"
-              style={{ fontSize: "clamp(48px, 9.5vw, 168px)" }}
+              className="font-medium tracking-[-0.035em] leading-[0.98] balance"
+              style={{ fontSize: "clamp(40px, 6.6vw, 116px)" }}
             >
-              Réservez votre <em className="text-acide">entretien</em>{" "}
-              diagnostic.
+              Réservez votre{" "}
+              <span className="font-light italic">entretien</span> diagnostic.
             </h2>
-            <p className="mt-8 lg:mt-10 text-xl lg:text-[22px] max-w-2xl leading-relaxed text-parchment/80 scroll-rise">
+            <p className="mt-8 max-w-2xl text-[18px] lg:text-[20px] text-paper/75 leading-[1.55] pretty">
               30 minutes, sans engagement, avec un conseiller pédagogique.
               Repartez avec un programme calé sur vos contraintes — calendrier,
               budget, conformité, livrables.
             </p>
-
-            <div className="mt-14 max-w-3xl">
+            <div className="mt-12 max-w-2xl">
               <div className="grid grid-cols-1 md:grid-cols-12 gap-3">
                 <input
                   type="email"
                   placeholder="prenom.nom@organisation.fr"
-                  aria-label="Adresse e-mail professionnelle"
-                  className="md:col-span-8 bg-transparent border border-parchment/30 px-5 py-5 text-base placeholder:text-parchment/45 focus:outline-none focus:border-acide focus:bg-parchment/5 rounded-full transition-colors"
+                  aria-label="E-mail professionnel"
+                  className="md:col-span-8 bg-transparent border border-paper/25 px-5 py-4 text-[15px] placeholder:text-paper/40 focus:outline-none focus:border-acide focus:ring-0 transition-colors"
                 />
                 <a
                   href="mailto:contact@academia.fr"
-                  className="lift md:col-span-4 inline-flex items-center justify-center gap-2 bg-acide text-ink px-6 py-5 rounded-full font-medium tracking-wider uppercase text-xs hover:bg-parchment"
+                  className="lift md:col-span-4 inline-flex items-center justify-center gap-2 bg-acide text-ink px-5 py-4 text-[14px] font-medium hover:bg-paper"
                 >
                   Demander un entretien
                   <span aria-hidden>→</span>
                 </a>
               </div>
-              <p className="mt-4 micro text-parchment/55">
-                Réponse sous 24 h ouvrées · Données traitées conformément au
-                RGPD.
+              <p className="mt-3 micro text-paper/45">
+                Réponse sous 24 h ouvrées · Données conformes RGPD
               </p>
             </div>
-
-            <div className="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-6 text-sm">
+            <div className="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-6 border-t border-paper/20 pt-8">
               <Detail k="WhatsApp" v="+33 6 XX XX XX XX" />
               <Detail k="E-mail" v="contact@academia.fr" />
               <Detail k="Horaires" v="L–V · 09 h – 19 h" />
@@ -972,91 +762,79 @@ function FinalCTA() {
 
 function Detail({ k, v }) {
   return (
-    <div className="border-t border-parchment/25 pt-3">
-      <div className="micro text-acide mb-1">{k}</div>
-      <div className="text-base">{v}</div>
+    <div>
+      <dt className="micro text-paper/55 mb-1.5">{k}</dt>
+      <dd className="text-[15px]">{v}</dd>
     </div>
   );
 }
 
-/* ────────────────────────────────────────────────────────── */
+/* ───────────────────────────────────────── */
 
 function Footer() {
   return (
-    <footer className="bg-parchment-3 px-6 lg:px-12 py-16 lg:py-20 border-t border-ink/15 relative">
-      <div className="max-w-[1480px] mx-auto">
+    <footer className="bg-paper px-6 lg:px-10 pt-14 pb-10 border-t border-ink/15">
+      <div className="max-w-[1400px] mx-auto">
         <div className="grid grid-cols-12 gap-8 lg:gap-12">
-          <div className="col-span-12 lg:col-span-4">
-            <div className="font-serif text-3xl tracking-[-0.02em] flex items-center gap-2">
-              <span>
-                Academ<span className="italic text-bordeaux">IA</span>
-              </span>
-              <span className="text-acide text-base translate-y-[-2px]">●</span>
+          <div className="col-span-12 lg:col-span-5">
+            <div className="font-medium tracking-[-0.02em] text-[19px] leading-none">
+              Academ<span className="font-semibold">IA</span>
             </div>
-            <p className="mt-5 text-sm leading-relaxed max-w-sm text-ink-soft">
-              Organisme de formation français, indépendant, certifié Qualiopi.
+            <p className="mt-4 text-[14px] text-ink-mute max-w-md leading-[1.65]">
+              Organisme français de formation, indépendant, certifié Qualiopi.
               Spécialiste de l'IA générative appliquée aux secteurs public,
               juridique et marketing.
             </p>
-            <div className="mt-8 flex items-center gap-3">
-              <span className="tag bg-acide text-ink px-3 py-1.5 rounded-full">
-                ● Qualiopi
+            <div className="mt-6 flex items-center gap-2">
+              <span className="inline-flex items-center gap-2 micro border border-ink/15 px-2.5 py-1.5">
+                <span className="inline-block w-1.5 h-1.5 rounded-full bg-acide-3" />
+                Qualiopi
               </span>
-              <span className="tag bg-ink text-parchment px-3 py-1.5 rounded-full">
+              <span className="inline-flex items-center micro border border-ink/15 px-2.5 py-1.5 text-ink-mute">
                 CPF · OPCO
               </span>
             </div>
           </div>
 
           <FooterCol title="Programmes">
-            <FootLink>IA pour juristes publics</FootLink>
+            <FootLink>IA pour juristes</FootLink>
             <FootLink>Marketing augmenté</FootLink>
             <FootLink>Veille &amp; rédaction</FootLink>
             <FootLink>Prompting opérationnel</FootLink>
             <FootLink>Agents &amp; automatisation</FootLink>
-            <FootLink>Conformité &amp; sécurité</FootLink>
+            <FootLink>Conformité IA</FootLink>
+          </FooterCol>
+
+          <FooterCol title="Cabinet">
+            <FootLink>Qui sommes-nous ?</FootLink>
+            <FootLink>Le formateur</FootLink>
+            <FootLink>Témoignages</FootLink>
+            <FootLink>Contact</FootLink>
           </FooterCol>
 
           <FooterCol title="Ressources">
             <FootLink>Blog</FootLink>
             <FootLink>E-learning</FootLink>
-            <FootLink>Cas d'études</FootLink>
             <FootLink>Glossaire IA</FootLink>
-          </FooterCol>
-
-          <FooterCol title="Cabinet">
-            <FootLink>Qui sommes-nous ?</FootLink>
-            <FootLink>Nos membres</FootLink>
-            <FootLink>Certifications</FootLink>
-            <FootLink>Contact</FootLink>
+            <FootLink>FAQ</FootLink>
           </FooterCol>
         </div>
 
         <div className="mt-14 flex flex-col lg:flex-row justify-between gap-4 pt-6 border-t border-ink/15 micro text-ink-mute">
           <div>© MMXXVI · AcademIA SAS — Paris, France</div>
           <div className="flex flex-wrap gap-x-6 gap-y-2">
-            <a className="hover:text-bordeaux" href="#">
+            <a href="#" className="hover:text-ink">
               Règlement intérieur
             </a>
-            <a className="hover:text-bordeaux" href="#">
+            <a href="#" className="hover:text-ink">
               CGV
             </a>
-            <a className="hover:text-bordeaux" href="#">
-              Politique de confidentialité
+            <a href="#" className="hover:text-ink">
+              Confidentialité
             </a>
-            <a className="hover:text-bordeaux" href="#">
+            <a href="#" className="hover:text-ink">
               Mentions légales
             </a>
-          </div>
-        </div>
-
-        {/* Oversize wordmark closing */}
-        <div className="mt-16 -mb-6 overflow-hidden select-none" aria-hidden>
-          <div
-            className="font-serif italic leading-[0.85] tracking-[-0.045em] text-center"
-            style={{ fontSize: "clamp(120px, 28vw, 540px)" }}
-          >
-            Academ<span className="text-bordeaux">IA</span>
           </div>
         </div>
       </div>
@@ -1066,9 +844,9 @@ function Footer() {
 
 function FooterCol({ title, children }) {
   return (
-    <div className="col-span-6 md:col-span-4 lg:col-span-2 lg:col-start-auto">
-      <div className="micro mb-5 text-ink-mute">{title}</div>
-      <ul className="space-y-2.5 text-sm">{children}</ul>
+    <div className="col-span-6 md:col-span-3 lg:col-span-2">
+      <div className="micro text-ink-mute mb-4">{title}</div>
+      <ul className="space-y-2.5 text-[14px]">{children}</ul>
     </div>
   );
 }
@@ -1076,7 +854,7 @@ function FooterCol({ title, children }) {
 function FootLink({ children }) {
   return (
     <li>
-      <a href="#" className="hover:text-bordeaux transition-colors">
+      <a href="#" className="hover:text-ink transition-colors">
         {children}
       </a>
     </li>
