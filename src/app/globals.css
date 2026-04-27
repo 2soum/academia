@@ -1,26 +1,212 @@
 @import "tailwindcss";
 
+@theme {
+  --font-serif: var(--font-fraunces), "Times New Roman", Georgia, serif;
+  --font-sans: var(--font-instrument), "Helvetica Neue", system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, "SF Mono", monospace;
+
+  --color-parchment: #f2ead8;
+  --color-parchment-2: #ebe1c9;
+  --color-parchment-3: #e3d6b6;
+  --color-ink: #0d1724;
+  --color-ink-soft: #2c3543;
+  --color-ink-mute: #6b7280;
+  --color-bordeaux: #6e1f2a;
+  --color-bordeaux-2: #8a2d39;
+  --color-acide: #cee04a;
+  --color-acide-2: #b8cb38;
+  --color-rouille: #b35a2c;
+  --color-mist: #d2c8af;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: light;
+  --grain-opacity: 0.55;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html,
+body {
+  background: var(--color-parchment);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01", "kern", "liga", "calt";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  position: relative;
+  overflow-x: clip;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: -10%;
+  pointer-events: none;
+  z-index: 100;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='320'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.55' numOctaves='2' stitchTiles='stitch' seed='4'/><feColorMatrix values='0 0 0 0 0.05  0 0 0 0 0.06  0 0 0 0 0.10  0 0 0 0.7 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-size: 320px;
+  opacity: var(--grain-opacity);
+  mix-blend-mode: multiply;
+}
+
+::selection {
+  background: var(--color-acide);
+  color: var(--color-ink);
+}
+::-moz-selection {
+  background: var(--color-acide);
+  color: var(--color-ink);
+}
+
+a {
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+}
+
+@utility balance {
+  text-wrap: balance;
+}
+@utility pretty {
+  text-wrap: pretty;
+}
+@utility ink-rule {
+  background: currentColor;
+  height: 1px;
+  opacity: 0.18;
+  display: block;
+}
+@utility micro {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 500;
+  line-height: 1.4;
+}
+@utility tag {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+@keyframes rise {
+  0% {
+    opacity: 0;
+    transform: translateY(36px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes wipe-in {
+  0% {
+    clip-path: inset(0 100% 0 0);
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes blink-slow {
+  50% {
+    opacity: 0.25;
+  }
+}
+
+@keyframes glow-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgb(206 224 74 / 0.45);
+  }
+  50% {
+    box-shadow: 0 0 0 14px rgb(206 224 74 / 0);
+  }
+}
+
+.rise {
+  animation: rise 1.05s cubic-bezier(0.2, 0.85, 0.2, 1) both;
+}
+.rise-2 {
+  animation: rise 1.05s 0.18s cubic-bezier(0.2, 0.85, 0.2, 1) both;
+}
+.rise-3 {
+  animation: rise 1.05s 0.36s cubic-bezier(0.2, 0.85, 0.2, 1) both;
+}
+.rise-4 {
+  animation: rise 1.05s 0.54s cubic-bezier(0.2, 0.85, 0.2, 1) both;
+}
+
+.wipe {
+  animation: wipe-in 1.4s 0.2s cubic-bezier(0.7, 0, 0.2, 1) both;
+}
+
+.marquee {
+  animation: marquee 42s linear infinite;
+}
+.spin-slow {
+  animation: spin-slow 30s linear infinite;
+}
+.blink-slow {
+  animation: blink-slow 2.4s ease-in-out infinite;
+}
+.glow-pulse {
+  animation: glow-pulse 2.6s ease-out infinite;
+}
+
+@supports (animation-timeline: view()) {
+  .scroll-rise {
+    animation: rise linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 60%;
+  }
+  .scroll-wipe {
+    animation: wipe-in linear both;
+    animation-timeline: view();
+    animation-range: entry 5% entry 70%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+/* Subtle hover lift used throughout */
+.lift {
+  transition: transform 0.5s cubic-bezier(0.2, 0.85, 0.2, 1),
+    background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+}
+.lift:hover {
+  transform: translateY(-3px);
+}
+
+/* Decorative oversize glyph helpers */
+.outline-glyph {
+  -webkit-text-stroke: 1px currentColor;
+  color: transparent;
 }
