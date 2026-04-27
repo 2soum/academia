@@ -1,4 +1,4 @@
-import { Geist, JetBrains_Mono, Instrument_Sans } from "next/font/google";
+import { Geist, JetBrains_Mono, Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
 
 const geist = Geist({
@@ -13,11 +13,9 @@ const jetbrains = JetBrains_Mono({
   display: "swap",
 });
 
-const instrumentSans = Instrument_Sans({
-  variable: "--font-instrument-sans",
+const bricolage = Bricolage_Grotesque({
+  variable: "--font-bricolage",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  style: ["normal", "italic"],
   display: "swap",
 });
 
@@ -37,25 +35,10 @@ export const metadata = {
   title: { default: TITLE, template: "%s · AcademIA" },
   description: DESCRIPTION,
   applicationName: SITE_NAME,
-  keywords: [
-    "formation IA Qualiopi",
-    "école IA française",
-    "formation juriste IA",
-    "marketing IA",
-    "secteur public IA",
-    "prompting opérationnel",
-    "agent IA",
-    "conformité RGPD IA",
-    "AcademIA",
-    "Diakaryou Thiam",
-    "Paris",
-    "France",
-  ],
   authors: [{ name: SITE_NAME, url: SITE_URL }],
   creator: SITE_NAME,
   publisher: SITE_NAME,
   category: "education",
-  classification: "Training Institute",
   robots: { index: true, follow: true },
   alternates: {
     canonical: SITE_URL,
@@ -70,16 +53,10 @@ export const metadata = {
     description:
       "Maîtrisez l'IA appliquée en 30 jours, ou on vous rembourse. Diagnostic gratuit.",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "AcademIA — École française d'IA appliquée",
-    description:
-      "30 jours pour maîtriser l'IA appliquée. Diagnostic gratuit. Garantie Qualiopi.",
-  },
 };
 
 export const viewport = {
-  themeColor: "#fbfaf6",
+  themeColor: "#fbfbfd",
   colorScheme: "light",
   width: "device-width",
   initialScale: 1,
@@ -89,9 +66,9 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="fr"
-      className={`${geist.variable} ${jetbrains.variable} ${instrumentSans.variable} antialiased`}
+      className={`${geist.variable} ${jetbrains.variable} ${bricolage.variable} antialiased`}
     >
-      <body className="bg-paper text-ink font-sans selection:bg-brand/25 selection:text-paper">
+      <body className="bg-paper text-ink font-sans selection:bg-brand/22 selection:text-ink">
         {children}
       </body>
     </html>
