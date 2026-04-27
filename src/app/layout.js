@@ -1,14 +1,8 @@
-import { Geist, JetBrains_Mono, Bricolage_Grotesque } from "next/font/google";
+import { Geist, Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
 
 const geist = Geist({
   variable: "--font-geist",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const jetbrains = JetBrains_Mono({
-  variable: "--font-jetbrains",
   subsets: ["latin"],
   display: "swap",
 });
@@ -66,7 +60,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="fr"
-      className={`${geist.variable} ${jetbrains.variable} ${bricolage.variable} antialiased`}
+      className={`${geist.variable} ${bricolage.variable} antialiased`}
     >
       <body className="bg-paper text-ink font-sans selection:bg-brand/22 selection:text-ink">
         {children}

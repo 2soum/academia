@@ -10,21 +10,25 @@ if (!KEY) {
   process.exit(1);
 }
 
-const DEFAULT_PROMPT = `Wide cinematic editorial photograph, ultrawide 16:9 composition for a premium contemporary B2B website hero banner.
+const DEFAULT_PROMPT = `Cinematic editorial photograph, vertical 3:4 portrait composition for a premium B2B website hero — ALIVE candid moment.
 
-Subject: A contemporary French research institute / modern academic library interior. Think the modern wing of Sciences Po, Bibliothèque François-Mitterrand reading hall, Lieu de Vie Saclay, or the Cité de l'Architecture. Late afternoon, near blue hour, before any artificial light is needed.
+Subject: 3 racially-diverse French professionals (mid 30s to mid 40s — a Caucasian woman with shoulder-length light-brown hair tucked back, a Black man, and a North-African woman) caught mid-genuine-laugh during a training breakthrough. NOT posed.
 
-Architecture: austere minimalist contemporary design. Floor-to-ceiling glass curtain wall on one side flooding the space with cool natural daylight. Polished pale-grey concrete floor with subtle reflections. Suspended minimal cylindrical pendant lights (off, design-piece style). Slim steel mullions. Modern raw oak built-in shelving on the back wall holding books in muted spines. High flat ceiling.
+Center of frame: the woman in a charcoal blazer is mid-real-laugh, leaning slightly forward, looking at her open silver MacBook screen with delight, one hand half-raised in a "got it!" gesture; her colleague the Black man, in a navy blazer over a crisp white shirt, leans in beside her with a broad warm smile, pointing gently at her laptop screen; the North-African woman across the table grins genuinely, looking up from her open Moleskine notebook, pen in hand. Hands gesturing, eyes bright, faces alive with intelligence and warmth. CAUGHT MID-MOMENT — like a real photograph of a real "aha" instant.
 
-Composition: deep clean one-point perspective into the space. A long row of low-slung modernist designer lounge chairs upholstered in saturated royal Yves Klein velvet (#1E3A8A — vibrant, unmistakable, UNIFORM color across all chairs) lined along a single sleek oak bench in the foreground. Their backs catch the soft daylight. Subtle blue reflection on the polished concrete floor.
+Setting: contemporary French institutional reading room — long polished oak conference table, floor-to-ceiling glass curtain wall behind and to the right overlooking soft grey Parisian rooftops, exposed pale-grey concrete columns, raw oak built-in shelving full of books on the back wall, suspended white LED pendant lights, polished light parquet floor.
 
-Light: cool, neutral natural daylight, slight blue cast, crisp whites, neutral concrete grays, soft cool shadows. ABSOLUTELY NO warm amber, NO golden hour, NO cream tones, NO yellow cast — color temperature 5800K minimum.
+Klein-blue accent: a saturated royal Yves Klein blue (#1e3a8a) document folder centered on the table next to the laughing woman.
 
-Mood: contemporary, refined, B2B-premium, French institutional gravitas, modern, austere yet welcoming, serene, slightly cinematic. No people anywhere, no faces, no readable text, no titles, no logos, no watermarks.
+Light: cool natural daylight from the window behind, slight blue cast, soft atmospheric haze, beautiful warm catch lights in eyes from the laptop screen reflection, soft directional fill on faces. Crisp, never harsh.
 
-Color palette: predominantly cool off-whites and neutral pale concrete greys, dark charcoal accents, raw oak mid-tone wood. ONE saturated Yves Klein royal blue (#1E3A8A) accent on the entire row of velvet chairs — they are the visual anchor.
+Color: predominantly cool whites, pale concrete greys, raw oak mid-tones, charcoal and navy blazers, white shirts, ONE saturated Klein blue accent on the folder.
 
-Style: shot on Hasselblad H6D 100MP, 24mm wide-angle f/5.6, Cinestill 50 cool grade, natural daylight, ultra-sharp focus throughout, photographic realism, high dynamic range, architectural editorial photography in the style of Hélène Binet, Iwan Baan, or Filip Dujardin.`;
+Mood: serious B2B premium, French institutional, contemporary, deeply alive — genuine joy of discovery, warm collegial energy, intimate small-cohort feel. NEVER staged, never stock-photo-stiff.
+
+Hands and faces clearly visible. NO logos on laptops, NO readable text on screens or notebooks, NO watermarks, NO brand marks.
+
+Style: Hasselblad H6D 100MP, 50mm f/2.8, Cinestill 50 cool grade, ultra-sharp focus on faces, photographic realism, candid editorial corporate photography in the manner of Magnum Photos / Steve McCurry / Annie Leibovitz reportage.`;
 
 const PROMPT = process.env.GEN_PROMPT || DEFAULT_PROMPT;
 
@@ -42,7 +46,7 @@ async function tryGenerate(model) {
     contents: [{ role: "user", parts: [{ text: PROMPT }] }],
     generationConfig: {
       responseModalities: ["IMAGE"],
-      imageConfig: { aspectRatio: "16:9" },
+      imageConfig: { aspectRatio: "3:4" },
     },
   };
   process.stdout.write(`→ ${model} ... `);
