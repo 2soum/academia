@@ -242,16 +242,16 @@ export default function Home() {
 function Nav() {
   return (
     <header className="sticky top-0 z-40 backdrop-blur-md bg-paper/85 border-b border-ink/10">
-      <div className="mx-auto max-w-[1320px] px-5 md:px-8 h-[88px] flex items-center justify-between gap-6">
+      <div className="mx-auto max-w-[1320px] px-5 md:px-8 h-[96px] flex items-center justify-between gap-6">
         <a
           href="#top"
           aria-label="AcademIA"
           className="inline-flex items-center gap-3 leading-none shrink-0"
         >
           <img
-            src="/logo-academia.png"
+            src="/logo-academia-v2.png"
             alt="AcademIA · École française d'IA appliquée"
-            className="h-14 md:h-16 w-auto"
+            className="h-14 md:h-[68px] w-auto"
           />
         </a>
 
@@ -303,7 +303,7 @@ function Hero() {
   return (
     <section
       id="top"
-      className="relative grid grid-cols-1 lg:grid-cols-[1.18fr_1fr] items-stretch lg:min-h-[calc(100svh-80px)] lg:max-h-[860px] overflow-hidden border-b border-ink/8"
+      className="relative grid grid-cols-1 lg:grid-cols-[1.18fr_1fr] items-stretch lg:min-h-[calc(100svh-96px)] lg:max-h-[860px] overflow-hidden border-b border-ink/8"
     >
       {/* TEXT — left */}
       <div className="order-2 lg:order-1 flex items-center px-6 md:px-10 lg:pl-12 xl:pl-20 py-14 lg:py-12">
@@ -1267,9 +1267,9 @@ function Footer() {
           <div className="col-span-12 md:col-span-5">
             <a href="#top" className="inline-block">
               <img
-                src="/logo-academia.png"
+                src="/logo-academia-v2.png"
                 alt="AcademIA"
-                className="h-11 w-auto"
+                className="h-12 md:h-14 w-auto"
               />
             </a>
             <p className="mt-5 text-[14px] text-ink-600 max-w-md leading-[1.7]">
