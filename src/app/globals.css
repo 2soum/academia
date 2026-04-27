@@ -37,6 +37,14 @@
   color-scheme: light;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
 html,
 body {
   background: var(--color-paper);
@@ -44,6 +52,18 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Sticky-nav offset: when clicking #anchor, stop ~96 px below the page top
+   so the section title isn't hidden under the 88 px header. */
+[id="programmes"],
+[id="methode"],
+[id="formateur"],
+[id="temoignages"],
+[id="preuves"],
+[id="contact"],
+[id="top"] {
+  scroll-margin-top: 96px;
 }
 
 ::selection {
