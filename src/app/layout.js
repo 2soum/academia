@@ -79,8 +79,8 @@ export const metadata = {
 };
 
 export const viewport = {
-  themeColor: "#09090b",
-  colorScheme: "dark",
+  themeColor: "#fbfaf6",
+  colorScheme: "light",
   width: "device-width",
   initialScale: 1,
 };
@@ -91,7 +91,7 @@ export default function RootLayout({ children }) {
       lang="fr"
       className={`${geist.variable} ${jetbrains.variable} ${instrumentSans.variable} antialiased`}
     >
-      <body className="bg-ink text-paper font-sans selection:bg-brand/30 selection:text-ink">
+      <body className="bg-paper text-ink font-sans selection:bg-brand/25 selection:text-paper">
         {children}
       </body>
     </html>

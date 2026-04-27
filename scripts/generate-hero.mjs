@@ -10,19 +10,23 @@ if (!KEY) {
   process.exit(1);
 }
 
-const PROMPT = `Wide cinematic editorial photograph, ultrawide 16:9 composition for a dark luxe website hero banner.
+const DEFAULT_PROMPT = `Wide cinematic editorial photograph, ultrawide 16:9 composition for a bright premium B2B website hero banner.
 
-Subject: A stately Parisian institutional library at night — Bibliothèque Mazarine / Conseil d'État interior style. Deep symmetric one-point perspective.
+Subject: A stately Parisian institutional library reading room at golden afternoon hour — Salle Labrouste / Bibliothèque Sainte-Geneviève / Richelieu Salle Ovale style. Deep symmetric one-point perspective.
 
-Composition: long corridor of dark walnut bookshelves filled with gilded leather-bound volumes receding into atmospheric haze. Polished black marble floor reflecting light subtly. A balcony with brass railings runs along the upper level.
+Composition: long rows of polished oak reading tables with classic brass desk lamps (unlit), tall arched windows on the sides flooding the space with warm directional daylight, polished light parquet wood floor, slender ornate cast-iron columns rising to a vaulted ceiling, walls lined with leather-bound books.
 
-Light: a single thin lime-green LED light line (#A1D85F) glows softly from below the balcony architrave in the mid-distance, casting a faint green reflection onto the marble floor. Warm amber pools of light from old brass desk lamps in the foreground. Volumetric beams visible through dim haze.
+Light: bright golden-hour natural daylight pouring through the windows; visible volumetric light beams with floating dust particles. Warm honey, cream and soft amber tones. Soft, gentle shadows.
 
-Mood: serious, scholarly, French institutional gravitas, B2B-premium, modern but timeless. No people anywhere, no faces, no readable text or titles, no logos, no watermarks.
+Single accent: subtle royal Yves Klein blue (#1E3A8A) — appears as the velvet upholstery of one prominent reading chair in the foreground and as a faint cool ambient glow on the underside of one architrave. Keep it discreet but unmistakable.
 
-Color grading: predominantly very dark charcoal and deep navy blacks. Single muted lime-green (#A1D85F) accent only on the architectural light detail. Warm amber from desk lamps. Shadow-heavy.
+Mood: scholarly, luminous, French institutional gravitas, B2B-premium, classical yet modern, serene. No people anywhere, no faces, no readable text or titles, no logos, no watermarks.
 
-Style: shot on Hasselblad H6D 100MP, 35mm f/2.8 lens, Kodak Vision 3 cinematic color grade, ISO 100. Ultra-sharp, photographic realism, high dynamic range, dramatic chiaroscuro. Architectural editorial photography in the style of Candida Höfer.`;
+Color grading: predominantly warm cream / soft amber / pale honey wood tones / luminous off-white. One Klein-blue accent. High dynamic range. Bright but never blown out.
+
+Style: shot on Hasselblad H6D 100MP, 35mm f/4 lens, Kodak Portra 400 film color, natural daylight, ultra-sharp, photographic realism. Architectural editorial photography in the style of Candida Höfer.`;
+
+const PROMPT = process.env.GEN_PROMPT || DEFAULT_PROMPT;
 
 const MODELS = [
   "gemini-3-pro-image-preview",
