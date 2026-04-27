@@ -10,21 +10,21 @@ if (!KEY) {
   process.exit(1);
 }
 
-const DEFAULT_PROMPT = `Wide cinematic editorial photograph, ultrawide 16:9 composition for a bright premium B2B website hero banner.
+const DEFAULT_PROMPT = `Wide cinematic editorial photograph, ultrawide 16:9 composition for a premium contemporary B2B website hero banner.
 
-Subject: A stately Parisian institutional library reading room at golden afternoon hour — Salle Labrouste / Bibliothèque Sainte-Geneviève / Richelieu Salle Ovale style. Deep symmetric one-point perspective.
+Subject: A contemporary French research institute / modern academic library interior. Think the modern wing of Sciences Po, Bibliothèque François-Mitterrand reading hall, Lieu de Vie Saclay, or the Cité de l'Architecture. Late afternoon, near blue hour, before any artificial light is needed.
 
-Composition: long rows of polished oak reading tables with classic brass desk lamps (unlit), tall arched windows on the sides flooding the space with warm directional daylight, polished light parquet wood floor, slender ornate cast-iron columns rising to a vaulted ceiling, walls lined with leather-bound books.
+Architecture: austere minimalist contemporary design. Floor-to-ceiling glass curtain wall on one side flooding the space with cool natural daylight. Polished pale-grey concrete floor with subtle reflections. Suspended minimal cylindrical pendant lights (off, design-piece style). Slim steel mullions. Modern raw oak built-in shelving on the back wall holding books in muted spines. High flat ceiling.
 
-Light: bright golden-hour natural daylight pouring through the windows; visible volumetric light beams with floating dust particles. Warm honey, cream and soft amber tones. Soft, gentle shadows.
+Composition: deep clean one-point perspective into the space. A long row of low-slung modernist designer lounge chairs upholstered in saturated royal Yves Klein velvet (#1E3A8A — vibrant, unmistakable, UNIFORM color across all chairs) lined along a single sleek oak bench in the foreground. Their backs catch the soft daylight. Subtle blue reflection on the polished concrete floor.
 
-Single accent: subtle royal Yves Klein blue (#1E3A8A) — appears as the velvet upholstery of one prominent reading chair in the foreground and as a faint cool ambient glow on the underside of one architrave. Keep it discreet but unmistakable.
+Light: cool, neutral natural daylight, slight blue cast, crisp whites, neutral concrete grays, soft cool shadows. ABSOLUTELY NO warm amber, NO golden hour, NO cream tones, NO yellow cast — color temperature 5800K minimum.
 
-Mood: scholarly, luminous, French institutional gravitas, B2B-premium, classical yet modern, serene. No people anywhere, no faces, no readable text or titles, no logos, no watermarks.
+Mood: contemporary, refined, B2B-premium, French institutional gravitas, modern, austere yet welcoming, serene, slightly cinematic. No people anywhere, no faces, no readable text, no titles, no logos, no watermarks.
 
-Color grading: predominantly warm cream / soft amber / pale honey wood tones / luminous off-white. One Klein-blue accent. High dynamic range. Bright but never blown out.
+Color palette: predominantly cool off-whites and neutral pale concrete greys, dark charcoal accents, raw oak mid-tone wood. ONE saturated Yves Klein royal blue (#1E3A8A) accent on the entire row of velvet chairs — they are the visual anchor.
 
-Style: shot on Hasselblad H6D 100MP, 35mm f/4 lens, Kodak Portra 400 film color, natural daylight, ultra-sharp, photographic realism. Architectural editorial photography in the style of Candida Höfer.`;
+Style: shot on Hasselblad H6D 100MP, 24mm wide-angle f/5.6, Cinestill 50 cool grade, natural daylight, ultra-sharp focus throughout, photographic realism, high dynamic range, architectural editorial photography in the style of Hélène Binet, Iwan Baan, or Filip Dujardin.`;
 
 const PROMPT = process.env.GEN_PROMPT || DEFAULT_PROMPT;
 

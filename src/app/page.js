@@ -178,7 +178,7 @@ export default function Home() {
 
 function AnnouncementBar() {
   return (
-    <div className="relative z-50 bg-paper-warm border-b border-ink/8">
+    <div className="relative z-50 bg-paper-2 border-b border-ink/8">
       <div className="mx-auto max-w-[1360px] px-5 md:px-12 h-9 flex items-center justify-between gap-4 mono text-[10.5px] tracking-[0.18em] uppercase text-ink-500">
         <div className="flex items-center gap-2.5">
           <span className="inline-block w-1.5 h-1.5 rounded-full bg-brand pulse-dot-brand" />
@@ -273,17 +273,17 @@ function Hero() {
         {/* Paper gradient overlay — fades image into white at top */}
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(180deg,rgba(251,250,246,1)_0%,rgba(251,250,246,0.96)_18%,rgba(251,250,246,0.65)_36%,rgba(251,250,246,0.18)_56%,rgba(251,250,246,0.05)_82%,rgba(251,250,246,0.45)_100%)]"
+          className="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(180deg,rgba(251,251,253,1)_0%,rgba(251,251,253,0.96)_16%,rgba(251,251,253,0.65)_34%,rgba(251,251,253,0.16)_54%,rgba(251,251,253,0.04)_80%,rgba(251,251,253,0.4)_100%)]"
         />
         {/* Klein-blue radial glow at the bottom */}
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(ellipse_60%_45%_at_50%_92%,rgba(30,58,138,0.18),transparent_60%)]"
+          className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(ellipse_60%_45%_at_50%_92%,rgba(30,58,138,0.16),transparent_60%)]"
         />
         {/* Atmospheric corner glows */}
         <div aria-hidden className="pointer-events-none absolute inset-0 z-0">
-          <div className="absolute left-[-8%] top-[-5%] h-[360px] w-[360px] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(45,79,224,0.08),transparent_70%)] blur-[100px]" />
-          <div className="absolute right-[-8%] top-[-5%] h-[320px] w-[320px] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(244,238,217,0.55),transparent_70%)] blur-[80px]" />
+          <div className="absolute left-[-8%] top-[-5%] h-[360px] w-[360px] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(45,79,224,0.1),transparent_70%)] blur-[100px]" />
+          <div className="absolute right-[-8%] top-[-5%] h-[320px] w-[320px] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(232,234,239,0.7),transparent_70%)] blur-[80px]" />
         </div>
 
         <div className="relative z-10 mx-auto w-full max-w-[1180px] px-5 md:px-12 pt-[16vh] md:pt-[12vh] pb-[16vh] md:pb-[20vh] flex-1 flex flex-col justify-center">
@@ -372,7 +372,7 @@ function Hero() {
 function Avatar({ letter, from, to }) {
   return (
     <span
-      className="relative inline-grid h-[22px] w-[22px] place-items-center rounded-full border border-white/40 font-semibold text-[10px] text-white/95 shadow-[0_1px_2px_rgba(12,20,38,0.18),0_0_0_2px_rgba(251,250,246,0.85)]"
+      className="relative inline-grid h-[22px] w-[22px] place-items-center rounded-full border border-white/40 font-semibold text-[10px] text-white/95 shadow-[0_1px_2px_rgba(10,14,26,0.18),0_0_0_2px_rgba(251,251,253,0.9)]"
       style={{
         backgroundImage: `linear-gradient(135deg, ${from} 0%, ${to} 100%)`,
         textShadow: "0 1px 1px rgba(0,0,0,0.35)",
@@ -492,7 +492,7 @@ function Programmes() {
 
 function Promesse() {
   return (
-    <section className="relative bg-paper-warm py-24 md:py-32 px-5 md:px-12 border-y border-ink/10">
+    <section className="relative bg-paper-2 py-24 md:py-32 px-5 md:px-12 border-y border-ink/10">
       <div aria-hidden className="absolute inset-0 grid-rule opacity-40" />
       <div className="relative mx-auto max-w-[1100px] text-center scroll-rise">
         <span className="eyebrow mb-7 block">02 / Promesse</span>
@@ -548,7 +548,7 @@ function Methode() {
           {methode.map((step) => (
             <li
               key={step.no}
-              className="grid grid-cols-12 gap-4 md:gap-10 py-7 md:py-9 border-b border-ink/10 group transition-colors hover:bg-paper-warm -mx-3 md:-mx-5 px-3 md:px-5"
+              className="grid grid-cols-12 gap-4 md:gap-10 py-7 md:py-9 border-b border-ink/10 group transition-colors hover:bg-paper-2 -mx-3 md:-mx-5 px-3 md:px-5"
             >
               <div className="col-span-2 md:col-span-1">
                 <span className="mono text-[12px] tracking-[0.18em] tab-nums text-brand font-semibold">
@@ -581,7 +581,7 @@ function Methode() {
 
 function Pourquoi() {
   return (
-    <section className="relative bg-paper-warm py-24 md:py-32 px-5 md:px-12 border-t border-ink/10">
+    <section className="relative bg-paper-2 py-24 md:py-32 px-5 md:px-12 border-t border-ink/10">
       <div aria-hidden className="absolute inset-0 grid-rule opacity-50" />
       <div className="relative mx-auto max-w-[1360px]">
         <SectionHead
@@ -705,7 +705,7 @@ function Temoignages() {
   return (
     <section
       id="temoignages"
-      className="relative bg-paper-warm py-24 md:py-32 px-5 md:px-12 border-t border-ink/10"
+      className="relative bg-paper-2 py-24 md:py-32 px-5 md:px-12 border-t border-ink/10"
     >
       <div className="relative mx-auto max-w-[1360px]">
         <SectionHead
@@ -837,7 +837,7 @@ function FinalCTA() {
 
 function Footer() {
   return (
-    <footer className="relative bg-paper-soft px-5 md:px-12 pt-16 pb-10 border-t border-ink/10">
+    <footer className="relative bg-paper-3 px-5 md:px-12 pt-16 pb-10 border-t border-ink/10">
       <div className="mx-auto max-w-[1360px]">
         <div className="grid grid-cols-12 gap-8 md:gap-12">
           <div className="col-span-12 md:col-span-5">

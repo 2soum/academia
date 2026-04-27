@@ -1,39 +1,36 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* ─── Paper & ink (warm cream + deep navy-black) ─────────────────── */
-  --color-paper: #fbfaf6;
-  --color-paper-warm: #f4eed9;
-  --color-paper-soft: #efe7cf;
-  --color-paper-deep: #e6dcc0;
+  /* ─── Paper & ink (clean cool whites + cool deep ink) ────────────── */
+  --color-paper: #fbfbfd;
+  --color-paper-2: #f3f4f7;
+  --color-paper-3: #e8eaef;
+  --color-paper-deep: #d8dce5;
 
-  --color-ink: #0c1426;
-  --color-ink-800: #1a2440;
-  --color-ink-700: #2a3447;
-  --color-ink-600: #3a4661;
-  --color-ink-500: #565e75;
+  --color-ink: #0a0e1a;
+  --color-ink-800: #161c2c;
+  --color-ink-700: #1f2740;
+  --color-ink-600: #2f3859;
+  --color-ink-500: #525c75;
   --color-ink-400: #6b7280;
-  --color-ink-300: #98a0b3;
-  --color-ink-200: #c7ccd6;
-  --color-ink-100: #e1e3e9;
-  --color-line: #d8d2c0;
-  --color-line-soft: #e7e0cc;
+  --color-ink-300: #9ca3af;
+  --color-ink-200: #c5cad4;
+  --color-ink-100: #e1e4ea;
+  --color-line: #e2e4ea;
+  --color-line-soft: #ebedf2;
 
   /* ─── Brand (Yves Klein–inspired royal blue) ─────────────────────── */
-  --color-brand-50: #eef2fc;
-  --color-brand-100: #dbe5f7;
-  --color-brand-200: #b8cbef;
-  --color-brand-300: #7b93e8;
+  --color-brand-50: #eef1f9;
+  --color-brand-100: #dbe3f5;
+  --color-brand-200: #b7c4ec;
+  --color-brand-300: #7b91dd;
   --color-brand-400: #4f6bc4;
   --color-brand: #1e3a8a;
-  --color-brand-600: #16306f;
+  --color-brand-600: #173072;
   --color-brand-700: #102756;
   --color-brand-800: #0a1c40;
   --color-brand-900: #06122a;
   --color-brand-bright: #2d4fe0;
-  --color-brand-paper: #f4f7ff;
-
-  --color-signal: #b91c1c;
 
   --font-display: var(--font-instrument-sans), var(--font-geist),
     ui-sans-serif, system-ui, sans-serif;
@@ -130,10 +127,10 @@ body {
 
 .bright-stage {
   background:
-    radial-gradient(80% 60% at 50% 110%, rgba(30, 58, 138, 0.14), transparent 55%),
-    radial-gradient(60% 40% at 12% 0%, rgba(45, 79, 224, 0.06), transparent 60%),
-    radial-gradient(50% 30% at 88% 8%, rgba(244, 238, 217, 0.6), transparent 60%),
-    linear-gradient(180deg, #fdfcf6 0%, #fbfaf6 50%, #f8f3e3 100%);
+    radial-gradient(80% 60% at 50% 110%, rgba(30, 58, 138, 0.16), transparent 55%),
+    radial-gradient(60% 40% at 12% 0%, rgba(45, 79, 224, 0.08), transparent 60%),
+    radial-gradient(50% 30% at 88% 8%, rgba(232, 234, 239, 0.5), transparent 60%),
+    linear-gradient(180deg, #ffffff 0%, #fbfbfd 50%, #f3f4f7 100%);
   position: relative;
   isolation: isolate;
 }
@@ -142,7 +139,7 @@ body {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background-image: radial-gradient(rgba(12, 20, 38, 0.05) 1px, transparent 1.4px);
+  background-image: radial-gradient(rgba(10, 14, 26, 0.05) 1px, transparent 1.4px);
   background-size: 26px 26px;
   opacity: 0.55;
   z-index: 0;
@@ -150,9 +147,9 @@ body {
 
 .dark-stage {
   background:
-    radial-gradient(80% 60% at 50% 110%, rgba(45, 79, 224, 0.28), transparent 55%),
+    radial-gradient(80% 60% at 50% 110%, rgba(45, 79, 224, 0.32), transparent 55%),
     radial-gradient(60% 40% at 15% 0%, rgba(30, 58, 138, 0.18), transparent 60%),
-    linear-gradient(180deg, #06122a 0%, #0a1a3a 55%, #0c1426 100%);
+    linear-gradient(180deg, #06122a 0%, #0a1a3a 55%, #0a0e1a 100%);
   position: relative;
   isolation: isolate;
   color: var(--color-paper);
@@ -170,8 +167,8 @@ body {
 
 .grid-rule {
   background-image:
-    linear-gradient(to right, rgba(12, 20, 38, 0.045) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(12, 20, 38, 0.045) 1px, transparent 1px);
+    linear-gradient(to right, rgba(10, 14, 26, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(10, 14, 26, 0.045) 1px, transparent 1px);
   background-size: 72px 72px;
 }
 
@@ -182,30 +179,30 @@ body {
   background-size: 72px 72px;
 }
 
-/* ─── Surfaces (light) ──────────────────────────────────────────────── */
+/* ─── Surfaces ──────────────────────────────────────────────────────── */
 
 .card-surface {
   background: #ffffff;
-  border: 1px solid rgba(12, 20, 38, 0.09);
+  border: 1px solid rgba(10, 14, 26, 0.08);
   transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
     border-color 0.3s, background 0.3s, box-shadow 0.3s;
 }
 .card-surface:hover {
-  border-color: rgba(30, 58, 138, 0.32);
+  border-color: rgba(30, 58, 138, 0.35);
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.6) inset,
-    0 8px 28px -12px rgba(12, 20, 38, 0.16);
+    0 8px 28px -12px rgba(10, 14, 26, 0.18);
 }
 
-.card-surface-warm {
-  background: #fbfaf3;
-  border: 1px solid rgba(12, 20, 38, 0.09);
+.card-surface-2 {
+  background: #f8f9fc;
+  border: 1px solid rgba(10, 14, 26, 0.08);
   transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
     border-color 0.3s, background 0.3s, box-shadow 0.3s;
 }
-.card-surface-warm:hover {
-  border-color: rgba(30, 58, 138, 0.32);
-  box-shadow: 0 8px 28px -12px rgba(12, 20, 38, 0.18);
+.card-surface-2:hover {
+  border-color: rgba(30, 58, 138, 0.35);
+  box-shadow: 0 8px 28px -12px rgba(10, 14, 26, 0.2);
 }
 
 .card-surface-dark {
@@ -216,18 +213,18 @@ body {
     border-color 0.3s, background 0.3s;
 }
 .card-surface-dark:hover {
-  border-color: rgba(123, 147, 232, 0.5);
+  border-color: rgba(123, 145, 221, 0.55);
   background: #122247;
 }
 
 .data-card {
   background: #ffffff;
-  border: 1px solid rgba(12, 20, 38, 0.1);
+  border: 1px solid rgba(10, 14, 26, 0.1);
 }
 .data-card-head {
   padding: 0.85rem 1.15rem;
-  border-bottom: 1px solid rgba(12, 20, 38, 0.07);
-  background: #faf6e8;
+  border-bottom: 1px solid rgba(10, 14, 26, 0.07);
+  background: #f3f4f7;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -251,7 +248,7 @@ body {
   isolation: isolate;
   box-shadow:
     0 10px 24px -10px rgba(30, 58, 138, 0.55),
-    0 2px 6px -2px rgba(30, 58, 138, 0.28),
+    0 2px 6px -2px rgba(30, 58, 138, 0.3),
     0 1px 0 rgba(255, 255, 255, 0.32) inset,
     0 -1px 0 rgba(6, 18, 42, 0.4) inset,
     0 0 0 1px rgba(30, 58, 138, 0.6) inset;
@@ -263,7 +260,7 @@ body {
   box-shadow:
     0 16px 36px -10px rgba(30, 58, 138, 0.62),
     0 6px 14px -4px rgba(30, 58, 138, 0.36),
-    0 0 0 4px rgba(123, 147, 232, 0.22),
+    0 0 0 4px rgba(123, 145, 221, 0.22),
     0 1px 0 rgba(255, 255, 255, 0.32) inset,
     0 -1px 0 rgba(6, 18, 42, 0.4) inset,
     0 0 0 1px rgba(45, 79, 224, 0.7) inset;
@@ -293,7 +290,7 @@ body {
   font-size: 0.93rem;
   color: var(--color-ink);
   background: rgba(255, 255, 255, 0.85);
-  border: 1px solid rgba(12, 20, 38, 0.14);
+  border: 1px solid rgba(10, 14, 26, 0.14);
   backdrop-filter: blur(10px);
   transition: background 0.2s, border-color 0.2s, transform 0.2s;
 }
@@ -314,11 +311,11 @@ body {
   letter-spacing: -0.005em;
   color: var(--color-ink-700);
   background: rgba(255, 255, 255, 0.92);
-  border: 1px solid rgba(12, 20, 38, 0.1);
+  border: 1px solid rgba(10, 14, 26, 0.1);
   backdrop-filter: blur(10px);
   box-shadow:
-    0 1px 2px rgba(12, 20, 38, 0.04),
-    0 0 0 4px rgba(12, 20, 38, 0.015);
+    0 1px 2px rgba(10, 14, 26, 0.04),
+    0 0 0 4px rgba(10, 14, 26, 0.015);
 }
 .chip .dot {
   width: 0.5rem;
@@ -347,9 +344,9 @@ body {
   width: 0.5rem;
   height: 0.5rem;
   border-radius: 999px;
-  background: linear-gradient(135deg, #7b93e8, #2d4fe0);
-  box-shadow: 0 0 12px rgba(123, 147, 232, 0.6),
-    0 0 0 3px rgba(123, 147, 232, 0.25);
+  background: linear-gradient(135deg, #7b91dd, #2d4fe0);
+  box-shadow: 0 0 12px rgba(123, 145, 221, 0.6),
+    0 0 0 3px rgba(123, 145, 221, 0.25);
 }
 
 /* ─── Brand text shimmer (royal blue) ──────────────────────────────── */
@@ -375,7 +372,7 @@ body {
   background-clip: text;
   color: transparent;
   animation: shimmer-brand 5.5s ease-in-out infinite;
-  filter: drop-shadow(0 0 16px rgba(45, 79, 224, 0.22));
+  filter: drop-shadow(0 0 16px rgba(45, 79, 224, 0.18));
 }
 
 /* ─── Animations ────────────────────────────────────────────────────── */
@@ -415,7 +412,7 @@ body {
 .ticker-track { animation: ticker 60s linear infinite; }
 
 @keyframes pulse-dot-brand {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(45, 79, 224, 0.55); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(45, 79, 224, 0.5); }
   50% { box-shadow: 0 0 0 8px rgba(45, 79, 224, 0); }
 }
 .pulse-dot-brand { animation: pulse-dot-brand 2s ease-out infinite; }
@@ -442,7 +439,7 @@ body {
   border-radius: 999px;
   background: #2d4fe0;
   position: relative;
-  box-shadow: 0 0 6px rgba(45, 79, 224, 0.6);
+  box-shadow: 0 0 6px rgba(45, 79, 224, 0.55);
 }
 .nav-status-dot::after {
   content: "";
